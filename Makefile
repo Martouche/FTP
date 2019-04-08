@@ -11,7 +11,8 @@ CC= gcc
 
 CFLAGS  = -W -Wall -Wextra -I./include
 
-SRC=	srcs/main.c
+SRC=	srcs/my_ftp.c\
+	srcs/main.c
 
 OBJ=    $(SRC:.c=.o)
 

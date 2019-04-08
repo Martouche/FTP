@@ -28,7 +28,7 @@ int	data;
 int	user;
 int	mode;
 
-typedef struct	s_ptr
+typedef struct s_ptr
 {
     char *name;
     int logged;

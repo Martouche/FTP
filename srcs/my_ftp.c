@@ -7,14 +7,15 @@
 
 #include "myftp.h"
 
-int myftp()
+int myftp(void)
 {
     char *buf;
     FILE *tmp;
     size_t n;
-    dprintf(client, "220 Welcome\r\n");
     tmp = fdopen(dup(client), "r");
     buf = NULL;
+
+    dprintf(client, "220 Welcome\r\n");
     while (1) {
         if (getline(&buf, &n, tmp) == -1) {
             fclose(tmp);
@@ -31,5 +32,5 @@ int myftp()
     fclose(tmp);
     if (fcntl(client, F_GETFD) != -1)
         close(client);
-     exit(0);
+    exit(0);
 }

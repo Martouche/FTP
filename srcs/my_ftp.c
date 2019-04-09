@@ -7,6 +7,11 @@
 
 #include "myftp.h"
 
+void my_parser(char *buf)
+{
+
+}
+
 int myftp(void)
 {
     char *buf;

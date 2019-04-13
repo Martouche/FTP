@@ -12,7 +12,7 @@ void init_data2(void)
     struct protoent *pe;
 
     (pe = getprotobyname("TCP")) == NULL ? printerror("getprotobyname", 1) : 0;
-    if ((data_fd = socket(AF_INET, SOCK_STREAM, pe->p_proto)) == -1)
+    if ((data = socket(AF_INET, SOCK_STREAM, pe->p_proto)) == -1)
         printerror("socket", 1);
 }
 

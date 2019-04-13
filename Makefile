@@ -11,7 +11,8 @@ CC= gcc
 
 CFLAGS  = -W -Wall -Wextra -I./include
 
-SRC=	srcs/my_data.c\
+SRC=	srcs/load_data.c\
+		srcs/my_data.c\
 		srcs/init_ip.c\
 		srcs/cmd_files.c\
 		srcs/cmd_files2.c\

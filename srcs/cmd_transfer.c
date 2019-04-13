@@ -3,7 +3,7 @@
 
 void cmd_pasv(char *cmd)
 {
-    struct sockaddr_in ddr;
+    struct sockaddr_in addr;
     socklen_t	addr_len;
     char *ip;
 
@@ -37,7 +37,7 @@ void cmd_port(char *cmd)
         s_in.sin_port = htons(port);
         s_in.sin_addr.s_addr = inet_addr(ip);
         if (connect(data, (struct sockaddr *)&s_in, sizeof(s_in)) == -1)
-            exerror("connect", 1);
+            printerror("connect", 1);
         else {
             free(ip);
 	        mode = 0;
@@ -57,7 +57,7 @@ void cmd_retr(char *cmd)
   int	rd;
 
   mode == 1 ? accept_data() : 0;
-  if (data_fd != -1)
+  if (data != -1)
     {
       file = strtok(cmd, " ");
       file = strtok(NULL, " ");

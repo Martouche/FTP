@@ -20,7 +20,13 @@ void printerror(char *str, int ex)
     exit(ex);
 }
 
-void    sig_handler(int sig)
+int	errorClient(char *str, int ret)
+{
+    dprintf(client, "%s\r\n", str);
+    return (ret);
+}
+
+void sig_handler(int sig)
 {
     if (sig == SIGINT) {
         if (fcntl(client, F_GETFD) != -1)

@@ -74,8 +74,20 @@ static t_ptr  ptr_list[] = {
   {"NLST", &cmd_nlst, 1}, {NULL, NULL, 0}};
 
 void init_socket(void);
-void init_port(int port);
+void init_port(int);
 void init_listen(void);
 void init_connection(void);
+
+void printerror(char *, int);
+void sig_handler(int);
+void error_handling(int, char **);
+void loop_ftp(int);
+
+void accept_data(void);
+int isValid(char *);
+
+char *makeIp(char *);
+int	makePort(char *);
+char *createCmd(char *, char *);
 
 #endif

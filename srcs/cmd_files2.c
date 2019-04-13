@@ -22,3 +22,22 @@ void cmd_nlst(char *cmd)
         dprintf(client, "450\r\n");
   free(command);
 }
+
+char *createCmd(char *cmd, char *ls)
+{
+    char *command;
+    char *buf;
+
+    buf = strtok(cmd, " ");
+    buf = strtok(NULL, " ");
+    if (buf != NULL) {
+        if ((command = malloc(sizeof(char *) *
+        (1 + strlen(buf) + strlen(ls)))) == NULL)
+            printerror("malloc", 1);
+        command = strcpy(command, ls);
+        command = strcat(command, buf);
+    }
+    else
+        command = strdup(ls);
+  return (command);
+}

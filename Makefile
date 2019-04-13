@@ -11,7 +11,13 @@ CC= gcc
 
 CFLAGS  = -W -Wall -Wextra -I./include
 
-SRC=	srcs/load_ftp.c\
+SRC=		srcs/cmd_files.c\
+		srcs/cmd_files2.c\
+		srcs/cmd_tranfer.c\
+		srcs/cmd_auth.c\
+		srcs/cmd_dir.c\
+		srcs/cmd_info.c\
+		srcs/load_ftp.c\
 		srcs/my_ftp.c\
 		srcs/main.c
 

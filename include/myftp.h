@@ -62,16 +62,17 @@ typedef struct s_ptr
 }t_ptr;
 
 static t_ptr  ptr_list[] = {
-  {"USER", &cmd_user, 0}, {"PASS", &cmd_pass, 0},
-  {"CWD", &cmd_cwd, 1}, {"CDUP", &cmd_cdup, 1},
-  {"QUIT", &cmd_quit, 0}, {"DELE", cmd_dele, 1},
-  {"PWD", &cmd_pwd, 1}, {"PASV", &cmd_pasv, 1},
-  {"PORT", &cmd_port, 1}, {"HELP", &cmd_help, 0},
-  {"NOOP", &cmd_noop, 0}, {"RETR", &cmd_retr, 1},
-  {"STOR", &cmd_stor, 1}, {"LIST", &cmd_list, 1},
-  {"SYST", &cmd_syst, 0}, {"TYPE", &cmd_type, 1},
-  {"MKD", &cmd_mkd, 1}, {"RMD", &cmd_rmd, 1},
-  {"NLST", &cmd_nlst, 1}, {NULL, NULL, 0}};
+    {"USER", &cmd_user, 0}, {"PASS", &cmd_pass, 0},
+    {"CWD", &cmd_cwd, 1}, {"CDUP", &cmd_cdup, 1},
+    {"QUIT", &cmd_quit, 0}, {"DELE", cmd_dele, 1},
+    {"PWD", &cmd_pwd, 1}, {"PASV", &cmd_pasv, 1},
+    {"PORT", &cmd_port, 1}, {"HELP", &cmd_help, 0},
+    {"NOOP", &cmd_noop, 0}, {"RETR", &cmd_retr, 1},
+    {"STOR", &cmd_stor, 1}, {"LIST", &cmd_list, 1},
+    {"SYST", &cmd_syst, 0}, {"TYPE", &cmd_type, 1},
+    {"MKD", &cmd_mkd, 1}, {"RMD", &cmd_rmd, 1},
+    {"NLST", &cmd_nlst, 1}, {NULL, NULL, 0}
+};
 
 void init_socket(void);
 void init_port(int);

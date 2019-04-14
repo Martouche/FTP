@@ -1,3 +1,9 @@
+/*
+** EPITECH PROJECT, 2019
+** my pasv and port command
+** File description:
+** made by Martin Vantalon
+*/
 
 #include "myftp.h"
 
@@ -16,7 +22,7 @@ void cmd_pasv(char *cmd)
         dprintf(client, "227 Passiv mode activated (");
         printIp(ip);
         dprintf(client, ",%d,%d)\r\n", ntohs(addr.sin_port) / 256,
-	      ntohs(addr.sin_port) % 256);
+        ntohs(addr.sin_port) % 256);
         mode = 1;
     }
     else
@@ -40,9 +46,9 @@ void cmd_port(char *cmd)
             printerror("connect", 1);
         else {
             free(ip);
-	        mode = 0;
-	        dprintf(client, "200 Connection ok\r\n");
-	        return;
+            mode = 0;
+            dprintf(client, "200 Connection ok\r\n");
+            return;
         }
     }
     dprintf(client, "421 Service not available\r\n");
@@ -51,54 +57,50 @@ void cmd_port(char *cmd)
 
 void cmd_retr(char *cmd)
 {
-  char	*file;
-  int	fd;
-  char	buf[1024];
-  int	rd;
+    char *file;
+    int fd;
+    char buf[1024];
+    int rd;
 
-  mode == 1 ? accept_data() : 0;
-  if (data != -1)
-    {
-      file = strtok(cmd, " ");
-      file = strtok(NULL, " ");
-      if ((fd = open(file, O_RDONLY)) == -1 || isValid(file) == -1)
-	errorClient("550 This file doesn't exist\r\n", 1);
-      else
-	{
-	  dprintf(client, "150 Connexion ready\r\n");
-	  buf[0] = '\0';
-	  while ((rd = read(fd, buf, 1024)) > 0)
-	    write(data, buf, rd);
-	  dprintf(client, "226 End of transmission\r\n");
-	  close(fd);
-	}
-      close(data);
+    mode == 1 ? accept_data() : 0;
+    if (data != -1) {
+        file = strtok(cmd, " ");
+        file = strtok(NULL, " ");
+        if ((fd = open(file, O_RDONLY)) == -1 || isValid(file) == -1)
+            errorClient("550 This file doesn't exist\r\n", 1);
+        else {
+            dprintf(client, "150 Connexion ready\r\n");
+            buf[0] = '\0';
+            while ((rd = read(fd, buf, 1024)) > 0)
+                write(data, buf, rd);
+            dprintf(client, "226 End of transmission\r\n");
+            close(fd);
+        }
+        close(data);
     }
 }
 
-void	cmd_stor(char *cmd)
+void cmd_stor(char *cmd)
 {
-  char	*file;
-  int	fd;
-  char	buf[1024];
-  int	rd;
+    char *file;
+    int fd;
+    char buf[1024];
+    int rd;
 
-  mode == 1 ? accept_data() : 0;
-  if (data != -1)
-    {
-      file = strtok(cmd, " ");
-      file = strtok(NULL, " ");
-      if ((fd = open(file, O_WRONLY | O_CREAT, 0644)) == -1)
-	errorClient("550 Impossible to creat file\r\n", 1);
-      else
-	{
-	  dprintf(client, "150 Connexion ready\r\n");
-	  buf[0] = '\0';
-	  while ((rd = read(data, buf, 1024)) > 0)
-	    write(fd, buf, rd);
-	  dprintf(client, "226 End of transmission\r\n");
-	  close(fd);
-	}
-      close(data);
+    mode == 1 ? accept_data() : 0;
+    if (data != -1) {
+        file = strtok(cmd, " ");
+        file = strtok(NULL, " ");
+        if ((fd = open(file, O_WRONLY | O_CREAT, 0644)) == -1)
+            errorClient("550 Impossible to creat file\r\n", 1);
+        else {
+            dprintf(client, "150 Connexion ready\r\n");
+            buf[0] = '\0';
+            while ((rd = read(data, buf, 1024)) > 0)
+                write(fd, buf, rd);
+            dprintf(client, "226 End of transmission\r\n");
+            close(fd);
+        }
+        close(data);
     }
 }

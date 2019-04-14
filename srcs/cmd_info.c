@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2019
+** my help functions 
+** File description:
+** made by Martin Vantalon
+*/
+
 #include "myftp.h"
 
 void cmd_syst(char *cmd)

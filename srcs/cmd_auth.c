@@ -1,3 +1,9 @@
+/*
+** EPITECH PROJECT, 2019
+** my auth command functions
+** File description:
+** made by Martin Vantalon
+*/
 
 #include "myftp.h"
 

@@ -20,7 +20,7 @@ char *makeIp(char *cmd)
     ip[2] = strtok(NULL, ",");
     ip[3] = strtok(NULL, ",");
     if ((ipaddr = malloc(sizeof(char *) * (strlen(ip[0]) + strlen(ip[1])
-	 + strlen(ip[2]) + strlen(ip[3]) + 4))) == NULL)
+    + strlen(ip[2]) + strlen(ip[3]) + 4))) == NULL)
         printerror("malloc", 1);
     ipaddr = strcpy(ipaddr, ip[0]);
     ipaddr = strcat(ipaddr, ".");
@@ -40,7 +40,7 @@ void printIp(char *ip)
     i = 0;
     while (ip[i] != '\0') {
         ip[i] == '.' ? dprintf(client, ",")
-	    : dprintf(client, "%c", ip[i]);
+        : dprintf(client, "%c", ip[i]);
         i++;
     }
 }

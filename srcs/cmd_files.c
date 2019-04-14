@@ -1,3 +1,9 @@
+/*
+** EPITECH PROJECT, 2019
+** my command functions
+** File description:
+** made by Martin Vantalon
+*/
 
 #include "myftp.h"
 

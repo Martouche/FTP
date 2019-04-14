@@ -20,7 +20,7 @@ void cmd_nlst(char *cmd)
     }
     else
         dprintf(client, "450\r\n");
-  free(command);
+    free(command);
 }
 
 char *createCmd(char *cmd, char *ls)
@@ -39,5 +39,5 @@ char *createCmd(char *cmd, char *ls)
     }
     else
         command = strdup(ls);
-  return (command);
+    return (command);
 }

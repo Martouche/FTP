@@ -15,7 +15,7 @@ static int get_same_ip(int fd)
     if (fd == -1)
         return (htons(INADDR_ANY));
     addr_len = sizeof(addr);
-    getsockname(fd, (struct sockaddr*)&addr, &addr_len);
+    getsockname(fd, (struct sockaddr *)&addr, &addr_len);
     return (addr.sin_addr.s_addr);
 }
 
@@ -30,7 +30,7 @@ void init_socketd(void)
         printerror("socket", 1);
     opt = 1;
     if (setsockopt(data, SOL_SOCKET, SO_REUSEADDR,
-		 (char *)&opt, sizeof(opt)) == -1)
+        (char *)&opt, sizeof(opt)) == -1)
         printerror("setsockopt", 1);
 }
 

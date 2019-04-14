@@ -20,12 +20,12 @@ void cmd_mkd(char *cmd)
 
 void cmd_rmd(char *cmd)
 {
-  char	*buf;
+    char *buf;
 
-  buf = strtok(cmd, " ");
-  buf = strtok(NULL, " ");
+    buf = strtok(cmd, " ");
+    buf = strtok(NULL, " ");
 
-  if (rmdir(buf) == -1)
-    dprintf(client, "550 Invalid directory (or not empty)\r\n");
-  dprintf(client, "250 Directory sucessfuly deleted\r\n");
+    if (rmdir(buf) == -1)
+        dprintf(client, "550 Invalid directory (or not empty)\r\n");
+    dprintf(client, "250 Directory sucessfuly deleted\r\n");
 }

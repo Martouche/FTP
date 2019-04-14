@@ -24,7 +24,7 @@ void cmd_cdup(char *cmd)
 
 void cmd_dele(char *cmd)
 {
-  char *buf;
+    char *buf;
 
     buf = strtok(cmd, " ");
     buf = strtok(NULL, " ");
@@ -56,9 +56,9 @@ void cmd_list(char *cmd)
     if (dup2(data, 1) != -1) {
         dprintf(client, "150\r\n");
         if (system(command) != 0)
-	       dprintf(client, "550 Bad file for ls\r\n");
+            dprintf(client, "550 Bad file for ls\r\n");
         else
-	       dprintf(client, "226 End of list\r\n");
+            dprintf(client, "226 End of list\r\n");
         dup2(oldfd, 1);
         close(data);
     }

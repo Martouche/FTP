@@ -30,17 +30,17 @@ void my_parser(char *buf)
     str = strtok(buf, " ");
     while (ptr_list[i].ptr) {
         if (str != NULL && strcmp(str, ptr_list[i].name) == 0) {
-	       if (ptr_list[i].logged == 1 && user != 2)
-            dprintf(client, "530 Not logged in.\r\n");
-          else
-               ptr_list[i].ptr(cmd);
-               exist = true;
-           }
-           i++;
-       }
-       if (exist == false)
-       dprintf(client, "500 Unknow command\r\n");
-       free(cmd);
+            if (ptr_list[i].logged == 1 && user != 2)
+                dprintf(client, "530 Not logged in.\r\n");
+            else
+                ptr_list[i].ptr(cmd);
+                exist = true;
+        }
+        i++;
+    }
+    if (exist == false)
+        dprintf(client, "500 Unknow command\r\n");
+        free(cmd);
 }
 
 int myftp(void)
